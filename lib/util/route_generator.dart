@@ -1,5 +1,6 @@
 import 'package:custom_splash/custom_splash.dart';
 import 'package:flutter/material.dart';
+import 'package:rescar/home.dart';
 import 'package:rescar/login.dart';
 import 'package:rescar/screens/welcome.dart';
 
@@ -24,6 +25,10 @@ class RouterGenerator {
       case '/login':
         return MaterialPageRoute<dynamic>(
           builder: (context) => Login(),
+        );
+      case '/home':
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => Home(),
         );
       default:
         return _erroRoute();

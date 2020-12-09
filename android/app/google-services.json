@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383071513085",
+    "project_id": "maissaude-15d1c",
+    "storage_bucket": "maissaude-15d1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383071513085:android:1aec66f395e30408eb9194",
+        "android_client_info": {
+          "package_name": "br.gov.serpro.flutter.u79424376472.rescar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383071513085-1tgoa08k3lnp1uumoli7pqptcim5rfn2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXAp_oBqMXuQh4J_dOHBrrUnLfJzhF5wE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383071513085-1tgoa08k3lnp1uumoli7pqptcim5rfn2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
