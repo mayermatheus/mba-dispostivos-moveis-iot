@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rescar/util/route_generator.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -16,8 +15,10 @@ class RescarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
-      onGenerateRoute: RouterGenerator.generateRoute,
-    );
+        initialRoute: '/',
+        onGenerateRoute: RouterGenerator.generateRoute,
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ));
   }
 }

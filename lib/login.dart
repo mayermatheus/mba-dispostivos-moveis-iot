@@ -37,48 +37,129 @@ class _LoginState extends State<Login> {
     return Scaffold(
         backgroundColor: Colors.green[900],
         body: Builder(
-          builder: (context) => Padding(
-            padding: EdgeInsets.all(10),
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextFormField(
-                    autofocus: true,
-                    controller: _email,
-                    keyboardType: TextInputType.emailAddress,
-                    style: new TextStyle(color: Colors.white, fontSize: 20),
-                    decoration: InputDecoration(
-                        labelText: 'Email',
-                        labelStyle: TextStyle(color: Colors.white)),
+            builder: (context) => Container(
+                  padding: EdgeInsets.only(
+                    top: 100,
+                    left: 40,
+                    right: 40,
                   ),
-                  Divider(),
-                  TextFormField(
-                    keyboardType: TextInputType.text,
-                    controller: _pass,
-                    obscureText: true,
-                    style: new TextStyle(color: Colors.white, fontSize: 20),
-                    decoration: InputDecoration(
-                        labelText: 'Senha',
-                        labelStyle: TextStyle(color: Colors.white)),
-                  ),
-                  Divider(),
-                  ButtonTheme(
-                    height: 60.0,
-                    child: RaisedButton(
-                      onPressed: () => {doLogin(context)},
-                      child: Text(
-                        'Entrar',
-                        style: TextStyle(color: Colors.green[900]),
+                  color: Colors.white,
+                  child: ListView(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 128,
+                        height: 128,
+                        child: Image.asset('assets/img/slide-rescar.png'),
                       ),
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ));
+                      Container(
+                        height: 20,
+                        alignment: Alignment.center,
+                        child: Text(
+                          '+Saúde',
+                          style: TextStyle(
+                              color: Colors.green[900],
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 60,
+                      ),
+                      TextFormField(
+                        autofocus: true,
+                        controller: _email,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: TextStyle(
+                              color: Colors.green[900],
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15),
+                        ),
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.text,
+                        controller: _pass,
+                        obscureText: true,
+                        style: new TextStyle(fontSize: 15),
+                        decoration: InputDecoration(
+                            labelText: 'Senha',
+                            labelStyle: TextStyle(
+                                color: Colors.green[900],
+                                fontWeight: FontWeight.w400,
+                                fontSize: 15)),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      ButtonTheme(
+                        height: 60.0,
+                        child: RaisedButton(
+                          onPressed: () => {doLogin(context)},
+                          child: Text(
+                            'Entrar',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          color: Colors.green[900],
+                        ),
+                      )
+                    ],
+                  ),
+                )));
   }
 }
+
+// Padding(
+//             padding: EdgeInsets.all(10),
+//             child: Center(
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.stretch,
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   SizedBox(
+//                     width: 128,
+//                     height: 128,
+//                     child: Image.asset('assets/icon/logo.png'),
+//                   ),
+//                   Divider(),
+//                   TextFormField(
+//                     autofocus: true,
+//                     controller: _email,
+//                     keyboardType: TextInputType.emailAddress,
+//                     style: new TextStyle(color: Colors.white, fontSize: 20),
+//                     decoration: InputDecoration(
+//                         labelText: 'Email',
+//                         labelStyle: TextStyle(color: Colors.white)),
+//                   ),
+//                   Divider(),
+//                   TextFormField(
+//                     keyboardType: TextInputType.text,
+//                     controller: _pass,
+//                     obscureText: true,
+//                     style: new TextStyle(color: Colors.white, fontSize: 20),
+//                     decoration: InputDecoration(
+//                         labelText: 'Senha',
+//                         labelStyle: TextStyle(color: Colors.white)),
+//                   ),
+//                   Divider(),
+//                   ButtonTheme(
+//                     height: 60.0,
+//                     child: RaisedButton(
+//                       onPressed: () => {doLogin(context)},
+//                       child: Text(
+//                         'Entrar',
+//                         style: TextStyle(color: Colors.green[900]),
+//                       ),
+//                       color: Colors.white,
+//                     ),
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ),
