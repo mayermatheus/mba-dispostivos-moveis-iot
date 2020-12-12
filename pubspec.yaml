@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   firebase_auth: ^0.18.4+1
+  firebase_database: ^4.4.0
   firebase_core: ^0.5.3
   custom_splash: ^0.0.2
   page_indicator: ^0.3.0

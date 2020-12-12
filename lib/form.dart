@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:rescar/models/item.dart';
 import 'package:rescar/models/hospital.dart';
@@ -21,8 +23,9 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
+  final databaseReference = FirebaseDatabase.instance.reference();
 
-  List<Hospital> _hospitais = Hospital.getHospitais();
+  /* List<Hospital> _hospitais = Hospital.getHospitais();
   List<DropdownMenuItem<Hospital>> _dropdownMenuItems;
   Hospital _selectedHospital;
 
@@ -50,23 +53,42 @@ class _FormPageState extends State<FormPage> {
     setState(() {
       _selectedHospital = selectedHospital;
     });
-  }
+  } */
 
-  void add() {
-    //pegar o hospital, pessoa e os items
-    //enviar para o firebase
+  void save(BuildContext context, Hospital hospital) {
+     User user = FirebaseAuth.instance.currentUser;
+     var itemsJson = [];
+     widget.items.forEach((element) { itemsJson.add(element.toJson());});
+
+    //try {
+      databaseReference.child(user.uid).set({
+        'hospital': hospital.toJson(), 
+        'items': itemsJson
+      });
+      /* Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text('Avaliação concluída com sucesso.'),
+        backgroundColor: Colors.green[700],
+      )); */
+ /*    } catch (error) {
+      print("Error ${error.toString()}");
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text('Algo inesperado aconteceu. Tente novamente.'),
+        backgroundColor: Colors.redAccent,
+      ));
+    } */
+
   }
 
   @override
   Widget build(BuildContext context) {
     final Hospital hospital = ModalRoute.of(context).settings.arguments;
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text("+Saúde " + hospital.name),
-        ),
+    return Scaffold(
+      //debugShowCheckedModeBanner: false,
+      //home: new Scaffold(
+      appBar: new AppBar(
+      title: new Text("+Saúde " + hospital.name),
+      ),
       body: ListView.builder(
         itemCount: widget.items.length,
         itemBuilder: (BuildContext ctxt, int index) {
@@ -82,11 +104,13 @@ class _FormPageState extends State<FormPage> {
             });
         }),
       floatingActionButton: FloatingActionButton(
-        onPressed: add,
+        onPressed: () {
+          save(context, hospital);
+        },
         child: Icon(Icons.save),
         backgroundColor: Colors.blueAccent,
         ),
-      ),
+      //),
     );
   }
 }

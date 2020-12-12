@@ -22,7 +22,7 @@ class _LoginState extends State<Login> {
       _email.text = '';
       _pass.text = '';
 
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/hospital');
     } catch (error) {
       print("Error ${error.toString()}");
       Scaffold.of(context).showSnackBar(SnackBar(
@@ -35,7 +35,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.green[900],
+        backgroundColor: Colors.blue,
         body: Builder(
             builder: (context) => Container(
                   padding: EdgeInsets.only(
@@ -57,7 +57,7 @@ class _LoginState extends State<Login> {
                         child: Text(
                           '+Saúde',
                           style: TextStyle(
-                              color: Colors.green[900],
+                              color: Colors.blue,
                               fontWeight: FontWeight.w400,
                               fontSize: 15),
                         ),
@@ -72,7 +72,7 @@ class _LoginState extends State<Login> {
                         decoration: InputDecoration(
                           labelText: 'Email',
                           labelStyle: TextStyle(
-                              color: Colors.green[900],
+                              color: Colors.blue,
                               fontWeight: FontWeight.w400,
                               fontSize: 15),
                         ),
@@ -91,7 +91,7 @@ class _LoginState extends State<Login> {
                         decoration: InputDecoration(
                             labelText: 'Senha',
                             labelStyle: TextStyle(
-                                color: Colors.green[900],
+                                color: Colors.blue,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 15)),
                       ),
@@ -106,7 +106,7 @@ class _LoginState extends State<Login> {
                             'Entrar',
                             style: TextStyle(color: Colors.white),
                           ),
-                          color: Colors.green[900],
+                          color: Colors.blue,
                         ),
                       )
                     ],
