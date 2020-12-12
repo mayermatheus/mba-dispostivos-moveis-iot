@@ -24,6 +24,7 @@ class FormPage extends StatefulWidget {
 
 class _FormPageState extends State<FormPage> {
   final databaseReference = FirebaseDatabase.instance.reference();
+  BuildContext context;
 
   /* List<Hospital> _hospitais = Hospital.getHospitais();
   List<DropdownMenuItem<Hospital>> _dropdownMenuItems;
@@ -55,35 +56,80 @@ class _FormPageState extends State<FormPage> {
     });
   } */
 
-  void save(BuildContext context, Hospital hospital) {
+  void save(BuildContext context, Hospital hospital) async {
      User user = FirebaseAuth.instance.currentUser;
      var itemsJson = [];
      widget.items.forEach((element) { itemsJson.add(element.toJson());});
+     //var hospitalJson = hospital.toJson();
+     //hospitalJson['itens'] = itemsJson;
 
-    //try {
-      databaseReference.child(user.uid).set({
+    try {
+      await databaseReference.child(user.uid).child(hospital.id.toString()).set({
         'hospital': hospital.toJson(), 
         'items': itemsJson
       });
-      /* Scaffold.of(context).showSnackBar(SnackBar(
+      Scaffold.of(context).showSnackBar(SnackBar(
         content: Text('Avaliação concluída com sucesso.'),
         backgroundColor: Colors.green[700],
-      )); */
- /*    } catch (error) {
+      ));
+      await Future.delayed(const Duration(milliseconds: 2000), () {
+        Navigator.pushReplacementNamed(context, '/hospital');
+      });
+
+    } catch (error) {
       print("Error ${error.toString()}");
       Scaffold.of(context).showSnackBar(SnackBar(
         content: Text('Algo inesperado aconteceu. Tente novamente.'),
         backgroundColor: Colors.redAccent,
       ));
-    } */
-
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final Hospital hospital = ModalRoute.of(context).settings.arguments;
-
     return Scaffold(
+      appBar: new AppBar(
+        title: new Text("+Saúde " + hospital.name),
+      ),
+
+      body: Builder(
+        builder : (BuildContext context){
+          this.context = context;
+          return Scaffold(
+            
+            body: 
+              ListView.builder(
+                itemCount: widget.items.length,
+                itemBuilder: (BuildContext ctxt, int index) {
+                  final item = widget.items[index];
+                  return CheckboxListTile(
+                    title: Text(item.title),
+                    key: Key(item.title),
+                    value: item.done, 
+                    onChanged: (value) {
+                      setState(() {
+                        item.done = value;
+                      });
+                    });
+                }),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                save(context, hospital);
+              },
+              child: Icon(Icons.save),
+              backgroundColor: Colors.blueAccent,
+            ),
+          );
+        }
+      )
+    );
+  } 
+}
+
+
+
+/*return  Scaffold(
       //debugShowCheckedModeBanner: false,
       //home: new Scaffold(
       appBar: new AppBar(
@@ -111,9 +157,7 @@ class _FormPageState extends State<FormPage> {
         backgroundColor: Colors.blueAccent,
         ),
       //),
-    );
-  }
-}
+    ); */
 
 
 /* Container(
