@@ -69,7 +69,7 @@ class WelcomeScreen extends StatelessWidget {
           height: 200,
         ),
         Text(
-          'Bem vindo ao RESCAR',
+          'Bem vindo ao +Saúde',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         RichText(
@@ -78,12 +78,12 @@ class WelcomeScreen extends StatelessWidget {
                 children: const [
               TextSpan(text: 'O '),
               TextSpan(
-                text: 'Rescar ',
+                text: '+Saúde ',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               TextSpan(
-                text: 'é um aplicativo de exemplo da arquitetura mobile '
-                    '+ DDD + Hexagonal.',
+                text: 'é um aplicativo que possui a finalidade '
+                    ' de avaliar os serviços de saúde públicos.',
               )
             ])));
   }
@@ -94,7 +94,7 @@ class WelcomeScreen extends StatelessWidget {
           height: 200,
         ),
         const Text(
-          'O que é Flutter?',
+          'Transforme o SUS',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         RichText(
@@ -102,15 +102,15 @@ class WelcomeScreen extends StatelessWidget {
             text: TextSpan(
                 style: TextStyle(color: Colors.black, fontSize: 14),
                 children: const [
-                  TextSpan(text: 'O '),
+                  TextSpan(text: 'Através de suas respostas será possível '),
                   TextSpan(
-                    text: 'Flutter ',
+                    text: 'fiscalizar ',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   TextSpan(
-                      text: 'é um SDK opensource criado pelo Google para '
-                          'o desenvolvimento de aplicativos modernos e '
-                          'nativos para Android, iOS, Desktop ou Web.')
+                      text: ''
+                          'o atendimento, as prestações de '
+                          'serviços e a localidade.')
                 ])),
       );
 
@@ -120,7 +120,7 @@ class WelcomeScreen extends StatelessWidget {
           height: 200,
         ),
         const Text(
-          'O que é DDD?',
+          'Metrificando a qualidade',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         RichText(
@@ -129,17 +129,17 @@ class WelcomeScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.black, fontSize: 14),
                 children: const [
                   TextSpan(
-                      text: 'DDD ',
+                      text: 'Através ',
                       style: TextStyle(fontWeight: FontWeight.bold)),
-                  TextSpan(text: 'ou '),
+                  TextSpan(text: 'do '),
                   TextSpan(
-                    text: 'Domain-Driven Desing ',
+                    text: 'preenchimento ',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   TextSpan(
-                    text: 'é uma abordagem para o desenvolvimento '
-                        'de software onde o domínio de negócio '
-                        'é a peça central.',
+                    text: 'do formulário, esses dados serão '
+                        'disponibilizados para eventuais melhorias no '
+                        'sistema de saúde.',
                   )
                 ])),
       );

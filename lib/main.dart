@@ -12,8 +12,10 @@ class RescarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "+Saúde",
       initialRoute: '/',
       onGenerateRoute: RouterGenerator.generateRoute,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
